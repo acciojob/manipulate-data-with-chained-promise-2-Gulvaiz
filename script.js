@@ -2,24 +2,24 @@
 const output = document.getElementById("output")
 const arr = [1,2,3,4]
 
-function delay(arr,time){
+function delay(data,time){
     return new Promise((resolve) => {
      setTimeout( () => {
-           resolve (arr)
+           resolve (data)
      }, time)
     })
 }
 
 delay(arr, 3000)
-.then((arr) => {
-     arr.filter(ele/2 === 0)
-     output.innerHTML = `${arr}`//
+.then((data) => {
+     let evenArr = data.filter((ele) => ele % 2 === 0)
+     output.innerHTML = `${evenArr.join(',')}`
+	return 
 }, 1000)
-.then((arr) => {
+.then((evenArr) => {
      
-     arr.map((ele) => { ele * 2})
-     
-     output.innerText = `${arr}`
+     let multiplies = evenArr.map((ele) => { ele * 2})
+     output.innerText = `${multiplies.join(',')}`
 }, 2000) 
 .catch( (e) => {
      output.innerText = `Error: ${e}`
